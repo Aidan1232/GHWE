@@ -55,14 +55,14 @@ async function fetchAlbumArtFromFilename(filename) {
     if (mbid) {
       document.getElementById("albumArt").src = `https://coverartarchive.org/release/${mbid}/front`;
     } else {
-      document.getElementById("albumArt").src = "default-cover.png";
+      document.getElementById("albumArt").src = "Assets/Images/default-cover.png";
     }
 
     // Also update "Now Playing"
     document.getElementById("nowPlaying").textContent = `Song: ${title} — ${artist}`;
   } catch (err) {
     console.error("Album fetch failed:", err);
-    document.getElementById("albumArt").src = "default-cover.png";
+    document.getElementById("albumArt").src = "Assets/Images/default-cover.png";
   }
 }
 
@@ -311,7 +311,7 @@ function checkGameOver() {
     isGameOver = true;
     playerAudio.pause();
     showJudgment("GAME OVER");
-    alert("💀 You lost the crowd!");
+    alert("GAME OVER! You lost the crowd!");
     location.reload();
   }
 
@@ -343,7 +343,7 @@ async function populateSongPickerFromList() {
   picker.innerHTML = "";
 
   try {
-    const res = await fetch("Songs/list.json");
+    const res = await fetch("Assets/list.json");
     const songs = await res.json();
 
     songs.forEach(file => {
