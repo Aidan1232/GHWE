@@ -67,7 +67,7 @@ async function fetchAlbumArtFromFilename(filename) {
 }
 
 function isMobile() {
-  return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  return /Android|iPhone|iPad|iPod|Windows Phone/i.test(navigator.userAgent);
 }
 
 function startGame() {
