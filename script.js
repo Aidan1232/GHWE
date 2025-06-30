@@ -66,6 +66,9 @@ async function fetchAlbumArtFromFilename(filename) {
   }
 }
 
+function isMobile() {
+  return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+}
 
 function startGame() {
   resetAudio();
@@ -106,6 +109,12 @@ function startGame() {
   // Start game UI
   document.getElementById("menu").style.display = "none";
   document.getElementById("gameUI").style.display = "block";
+  if (isMobile()) {
+    setMobileControlsVisible(true);
+  } else {
+    setMobileControlsVisible(false);
+  }
+
 
   // Setup Web Audio API
   context = new (window.AudioContext || window.webkitAudioContext)();
@@ -148,7 +157,23 @@ function startGame() {
   }, delayOffset * 1000);
 
   document.addEventListener('keydown', handleKeyDown);
+  document.querySelectorAll(".laneButton").forEach(btn => {
+    const handleTap = e => {
+      e.preventDefault();
+      const lane = parseInt(btn.dataset.lane);
+      checkHit(lane);
+    };
+
+    btn.addEventListener("touchstart", handleTap);
+    btn.addEventListener("click", handleTap);
+  });
 }
+
+function setMobileControlsVisible(visible) {
+  const el = document.getElementById("mobileControls");
+  el.style.display = visible ? "flex" : "none";
+}
+
 
 function formatTime(seconds) {
   if (isNaN(seconds)) return "0:00";

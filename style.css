@@ -247,3 +247,53 @@ button:hover {
   object-fit: cover;
   border-radius: 4px;
 }
+
+#mobileControls {
+  position: absolute;
+  bottom: 330px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  gap: 20px;
+  z-index: 100;
+}
+
+.laneButton {
+  width: 60px;
+  height: 60px;
+  font-size: 20px;
+  border-radius: 12px;
+  background: #444;
+  color: white;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+
+  /* Text alignment fix */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: normal;
+  padding: 0;
+}
+
+#backHomeBtn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  z-index: 999;
+  padding: 6px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+#backHomeBtn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
