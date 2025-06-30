@@ -250,7 +250,7 @@ button:hover {
 
 #mobileControls {
   position: absolute;
-  bottom: 330px;
+  bottom: 20px;
   left: 0;
   right: 0;
   display: flex;

@@ -73,8 +73,6 @@ function isMobile() {
 function startGame() {
   resetAudio();
   const track = document.getElementById("songPicker").value;
-  fetchAlbumArtFromFilename(track);
-  fetchAlbumArtFromFilename(track);
   const playerAudio = document.getElementById("playerAudio");
   const analysisAudio = document.getElementById("analysisAudio");
   analysisAudio.crossOrigin = "anonymous"; // especially if hosted on GitHub Pages
@@ -111,8 +109,11 @@ function startGame() {
   document.getElementById("gameUI").style.display = "block";
   if (isMobile()) {
     setMobileControlsVisible(true);
+    document.getElementById("nowPlayingContainer").style.display = "none";
   } else {
     setMobileControlsVisible(false);
+    fetchAlbumArtFromFilename(track);
+    fetchAlbumArtFromFilename(track);
   }
 
 
