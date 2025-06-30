@@ -1,1 +1,2 @@
 # GHWE
+This is a custom made Guitar Hero Engine for web by using YOUR mp3s itll convert them IN REAL TIME! into a chart for the game to use, its in bata phase as its not 100% on beat its like a good 80% with different songs.

@@ -77,7 +77,7 @@ function startGame() {
   const analysisAudio = document.getElementById("analysisAudio");
   analysisAudio.crossOrigin = "anonymous"; // especially if hosted on GitHub Pages
   analysisAudio.muted = false;             // ensure it's not hard-muted
-  analysisAudio.volume = 0.2;                // silence it without breaking the audio graph
+  analysisAudio.volume = 0.3;                // silence it without breaking the audio graph
   analysisAudio.playbackRate = 1.005; // 0.5% faster
 
   function updateProgressBar() {
@@ -372,15 +372,42 @@ async function populateSongPickerFromList() {
     const res = await fetch("Assets/list.json");
     const songs = await res.json();
 
-    songs.forEach(file => {
-      const key = "bestScore_Songs/" + file;
+    // Rebuild list with { title, artist, filename, best } structure
+    const parsedSongs = songs.map(file => {
+      const name = file.replace(/^Songs\//, "").replace(/\.mp3$/i, "");
+      const dashIndex = name.indexOf("-");
+      const rawArtist = name.slice(0, dashIndex);
+      const rawTitle = name.slice(dashIndex + 1);
+
+      const artist = rawArtist.replace(/[_]/g, " ").trim();
+      const title = rawTitle.replace(/[_]/g, " ").trim();
+      const key = `bestScore_Songs/${file}`;
       const best = localStorage.getItem(key) || 0;
 
-      const opt = document.createElement("option");
-      const label = file.replace(".mp3", "").replace(/[_\-]/g, " ");
-      opt.value = "Songs/" + file;
-      opt.textContent = `${label} (Best: ${best})`;
-      picker.appendChild(opt);
+      return { file, artist, title, best };
+    });
+
+    // Sort alphabetically by title
+    parsedSongs.sort((a, b) => a.title.localeCompare(b.title));
+
+    let currentGroup = "";
+    parsedSongs.forEach(song => {
+      const groupLetter = song.title[0].toUpperCase();
+
+      if (groupLetter !== currentGroup) {
+        currentGroup = groupLetter;
+        const optGroup = document.createElement("optgroup");
+        optGroup.label = currentGroup;
+        picker.appendChild(optGroup);
+      }
+
+      const label = `${song.title} - ${song.artist}`;
+      const option = document.createElement("option");
+      option.value = `Songs/${song.file}`;
+      option.textContent = `${label} (Best: ${song.best})`;
+
+      // Append to last optgroup
+      picker.lastChild.appendChild(option);
     });
   } catch (err) {
     console.error("Couldn't load song list:", err);
