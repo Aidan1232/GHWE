@@ -78,7 +78,8 @@ function startGame() {
   analysisAudio.crossOrigin = "anonymous"; // especially if hosted on GitHub Pages
   analysisAudio.muted = false;             // ensure it's not hard-muted
   analysisAudio.volume = 0.3;                // silence it without breaking the audio graph
-  analysisAudio.playbackRate = 1.005; // 0.5% faster
+  analysisAudio.playbackRate = 1.000;
+
 
   function updateProgressBar() {
     if (isGameOver || playerAudio.ended) return;
