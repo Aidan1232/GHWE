@@ -255,6 +255,8 @@ button:hover {
   bottom: 30px;
   left: 0;
   right: 0;
+  width: 60px;
+  height: 60px;
   display: flex;
   justify-content: center;
   text-align: center;
