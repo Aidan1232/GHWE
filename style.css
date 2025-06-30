@@ -89,14 +89,16 @@ button:hover {
   right: 0;
   height: 35px;
   background: rgba(255, 255, 255, 0.3);
-  border-top: 1px solid red;
-  border-bottom: 1px solid red;
+  border-top: 1px solid cyan;
+  border-bottom: 1px solid cyan;
 }
 
 .note {
   width: 100%;
   height: 20px;
   background: cyan;
+  box-shadow: 0 0 12px #0ff; /* Initial glow */
+  transition: box-shadow 0.2s ease;
   position: absolute;
   bottom: 100%;
 }
