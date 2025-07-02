@@ -5,6 +5,12 @@ Currently in **beta** – beat detection accuracy is around **80%**, depending o
 
 ---
 
+**Note:**  
+For now, the game includes a selection of **preloaded songs**.  
+I’m working on adding **drag-and-drop support**, so you’ll be able to load and play your **own tracks** soon—stay tuned!
+
+---
+
 ## How to Play
 
 1. **Download the Project**  
