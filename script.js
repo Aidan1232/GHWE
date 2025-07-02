@@ -101,7 +101,7 @@ async function fetchAlbumArtFromFilename(filename) {
   }
 }
 
-function isMobile() {
+function isMobile1() {
   return /Android|iPhone|iPad|iPod|Windows Phone/i.test(navigator.userAgent);
 }
 
@@ -143,7 +143,7 @@ function startGame() {
   // Start game UI
   document.getElementById("menu").style.display = "none";
   document.getElementById("gameUI").style.display = "block";
-  if (isMobile()) {
+  if (isMobile1()) {
     setMobileControlsVisible(true);
     document.getElementById("nowPlayingContainer").style.display = "none";
   } else {
