@@ -52,7 +52,6 @@ function showBrowserRecommendation() {
 }
 
 function detectEnvironment() {
-  alert("UA: " + navigator.userAgent);
   const ua = navigator.userAgent;
   const isMobile = /Android|iPhone|iPad|iPod|Windows Phone/i.test(ua);
   let browser = "Unknown";
