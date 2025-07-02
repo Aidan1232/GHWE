@@ -14,18 +14,24 @@ I’m working on adding **drag-and-drop support**, so you’ll be able to load a
 ## How to Play
 
 1. **Download the Project**  
-   Clone or download this repository from GitHub. You'll be running the game locally for now.
+   Clone or download this repository and run it locally.
 
 2. **Add Your Songs**  
-   Inside the project folder, go to the `songs/` directory and add your `.mp3` files there manually.  
-    _Drag-and-drop support isn't available yet—stay tuned!_
+   Drop your `.mp3` files into the `songs/` directory to play your own music.  
+   _Drag-and-drop support is in development!_
 
-3. **Start the Game**  
-   Open `index.html` in your browser (preferably **Opera GX**). This will load the game with your preloaded songs.
+3. **Launch the Game**  
+   Open `index.html` in your browser—**Opera GX** is recommended for best timing accuracy.
 
-4. **Play and Tap!**  
-   Select a track from the menu and tap the falling notes as they hit the judgment line.  
-   Timing matters—nail those Perfects!
+4. **Start Playing**  
+   Choose a song and tap the falling notes in rhythm.  
+   Perfect timing = higher score!
+
+---
+
+**No download? No problem (for now):**  
+The game includes a few **preloaded songs** for demo purposes.  
+⚠️ _These will be removed in the future to avoid potential copyright issues._
 
 ---
 
