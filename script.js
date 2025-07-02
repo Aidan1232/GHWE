@@ -21,11 +21,11 @@ function detectEnvironment() {
 }
 
 
-const { isMobile, browser } = detectEnvironment();
+const { isMobile: isMobileEnv, browser } = detectEnvironment();
 
 let delayOffset = 1.4; // default for desktop
 
-if (isMobile) {
+if (isMobileEnv) {
   switch (browser) {
     case "Opera":
       delayOffset = 1.2; // Opera GX mobile behaves almost desktop-like
