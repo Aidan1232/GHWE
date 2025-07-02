@@ -5,7 +5,42 @@ const lanes = Array.from(document.querySelectorAll('.lane'));
 let lastSpawnTime = 0;
 const cooldown = 0.25;
 const noteFallTime = 1.5;     // seconds from top to hit line
-const delayOffset = isMobile() ? 1.9 : 1.4;      // how far ahead to detect beats
+
+function detectEnvironment() {
+  const ua = navigator.userAgent;
+  const isMobile = /Android|iPhone|iPad|iPod|Windows Phone/i.test(ua);
+  let browser = "Unknown";
+
+  if (ua.includes("OPR") || ua.includes("Opera")) browser = "Opera";
+  else if (ua.includes("Edg")) browser = "Edge";
+  else if (ua.includes("Chrome") && !ua.includes("Edg") && !ua.includes("OPR")) browser = "Chrome";
+  else if (ua.includes("Firefox")) browser = "Firefox";
+  else if (ua.includes("Safari") && !ua.includes("Chrome")) browser = "Safari";
+
+  return { isMobile, browser };
+}
+
+
+const { isMobile, browser } = detectEnvironment();
+
+let delayOffset = 1.4; // default for desktop
+
+if (isMobile) {
+  switch (browser) {
+    case "Opera":
+      delayOffset = 1.2; // Opera GX mobile behaves almost desktop-like
+      break;
+    case "Chrome":
+      delayOffset = 1.9; // Chrome mobile usually needs more compensation
+      break;
+    case "Firefox":
+      delayOffset = 1.7;
+      break;
+    default:
+      delayOffset = 2.0; // fallback guess for unknowns
+  }
+}
+
 let lastSpikeTime = 0;
 let spikeIntervals = [];
 let energyHistory = [];
