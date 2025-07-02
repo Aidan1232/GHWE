@@ -1,7 +1,7 @@
 # 🎸 GHWE – Guitar Hero Web Engine  
 A custom-made **Guitar Hero-style rhythm engine** for the web. Just drop in your own MP3s, and it converts them **in real time** into playable charts!  
 
-Currently in **beta** – beat detection accuracy is around **80%**, depending on the song. It’s already fun, but still evolving!
+Currently in **beta** – beat detection accuracy is around **80%**, depending on the songs beats. It’s already fun, but still evolving!
 
 ---
 
