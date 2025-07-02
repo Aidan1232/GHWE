@@ -29,7 +29,27 @@ function showErrorOnScreen(message) {
   haltGame();
 }
 
+function showBrowserRecommendation() {
+  const banner = document.createElement("div");
+  banner.textContent = "⚠️ It's recommended to play this on Opera GX as the other browsers lack the power needed to keep in beat.";
+  
+  Object.assign(banner.style, {
+    position: "fixed",
+    top: "0",
+    left: "0",
+    width: "100%",
+    backgroundColor: "#222",
+    color: "#f0f0f0",
+    fontSize: "12px",
+    padding: "6px 12px",
+    textAlign: "center",
+    zIndex: "9999",
+    boxShadow: "0 2px 6px rgba(0,0,0,0.3)",
+    fontFamily: "sans-serif"
+  });
 
+  document.body.appendChild(banner);
+}
 
 function detectEnvironment() {
   const ua = navigator.userAgent;
@@ -53,16 +73,19 @@ let delayOffset = 1.4; // default for desktop
 if (isMobileEnv) {
   switch (browser) {
     case "Opera":
-      delayOffset = 1.4; // Opera GX mobile behaves almost desktop-like
+      delayOffset = 1.4;
       break;
     case "Chrome":
-      delayOffset = 1.9; // Chrome mobile usually needs more compensation
+      delayOffset = 1.9;
+      showBrowserRecommendation();
       break;
     case "Firefox":
       delayOffset = 1.7;
+      showBrowserRecommendation();
       break;
     default:
-      delayOffset = 2.0; // fallback guess for unknowns
+      delayOffset = 2.0;
+      showBrowserRecommendation();
   }
 }
 
