@@ -78,10 +78,12 @@ if (isMobileEnv) {
     case "Chrome":
       delayOffset = 1.9;
       showBrowserRecommendation();
+      alert("using chrome");
       break;
     case "Firefox":
       delayOffset = 1.7;
       showBrowserRecommendation();
+      alert("using firefox");
       break;
     default:
       delayOffset = 2.0;
