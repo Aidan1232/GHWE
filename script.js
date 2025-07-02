@@ -6,6 +6,31 @@ let lastSpawnTime = 0;
 const cooldown = 0.25;
 const noteFallTime = 1.5;     // seconds from top to hit line
 
+window.addEventListener("error", function (event) {
+  console.error("Uncaught error:", event.error || event.message);
+  showErrorOnScreen("An error occurred: " + (event.message || "Unknown issue"));
+});
+
+window.addEventListener("unhandledrejection", function (event) {
+  console.error("Unhandled promise rejection:", event.reason);
+  showErrorOnScreen("Unhandled promise rejection: " + (event.reason?.message || event.reason));
+});
+
+function haltGame() {
+  isGameOver = true;
+}
+
+
+function showErrorOnScreen(message) {
+  const overlay = document.getElementById("errorOverlay");
+  overlay.textContent = "⚠️ " + message;
+  overlay.style.display = "block";
+
+  haltGame();
+}
+
+
+
 function detectEnvironment() {
   const ua = navigator.userAgent;
   const isMobile = /Android|iPhone|iPad|iPod|Windows Phone/i.test(ua);
@@ -45,29 +70,6 @@ let lastSpikeTime = 0;
 let spikeIntervals = [];
 let energyHistory = [];
 let recentNoteTimes = [];
-
-window.addEventListener("error", function (event) {
-  console.error("Uncaught error:", event.error || event.message);
-  showErrorOnScreen("An error occurred: " + (event.message || "Unknown issue"));
-});
-
-window.addEventListener("unhandledrejection", function (event) {
-  console.error("Unhandled promise rejection:", event.reason);
-  showErrorOnScreen("Unhandled promise rejection: " + (event.reason?.message || event.reason));
-});
-
-function haltGame() {
-  isGameOver = true;
-}
-
-
-function showErrorOnScreen(message) {
-  const overlay = document.getElementById("errorOverlay");
-  overlay.textContent = "⚠️ " + message;
-  overlay.style.display = "block";
-
-  haltGame();
-}
 
 async function fetchAlbumArtFromFilename(filename) {
   const name = filename.replace(/^Songs\//, "").replace(/\.mp3$/i, "");
