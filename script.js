@@ -53,7 +53,7 @@ let delayOffset = 1.4; // default for desktop
 if (isMobileEnv) {
   switch (browser) {
     case "Opera":
-      delayOffset = 1.2; // Opera GX mobile behaves almost desktop-like
+      delayOffset = 1.4; // Opera GX mobile behaves almost desktop-like
       break;
     case "Chrome":
       delayOffset = 1.9; // Chrome mobile usually needs more compensation
