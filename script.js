@@ -56,11 +56,9 @@ function detectEnvironment() {
   const isMobile = /Android|iPhone|iPad|iPod|Windows Phone/i.test(ua);
   let browser = "Unknown";
 
-  if (ua.includes("OPR") || ua.includes("Opera")) browser = "Opera";
-  else if (ua.includes("Edg")) browser = "Edge";
-  else if (ua.includes("Chrome") && !ua.includes("Edg") && !ua.includes("OPR") && !ua.includes("Opera")) browser = "Chrome";
-  else if (ua.includes("Firefox")) browser = "Firefox";
-  else if (ua.includes("Safari") && !ua.includes("Chrome")) browser = "Safari";
+  if (/OPR|Opera/i.test(ua)) browser = "Opera";
+else if (/Edg/i.test(ua)) browser = "Edge";
+else if (/Chrome/i.test(ua) && !/Edg|OPR|Opera/i.test(ua)) browser = "Chrome";
 
   return { isMobile, browser };
 }
