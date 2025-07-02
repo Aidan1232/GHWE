@@ -58,7 +58,7 @@ function detectEnvironment() {
 
   if (ua.includes("OPR") || ua.includes("Opera")) browser = "Opera";
   else if (ua.includes("Edg")) browser = "Edge";
-  else if (ua.includes("Chrome") && !ua.includes("Edg") && !ua.includes("OPR")) browser = "Chrome";
+  else if (ua.includes("Chrome") && !ua.includes("Edg") && !ua.includes("OPR") && !ua.includes("Opera")) browser = "Chrome";
   else if (ua.includes("Firefox")) browser = "Firefox";
   else if (ua.includes("Safari") && !ua.includes("Chrome")) browser = "Safari";
 
