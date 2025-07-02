@@ -1,5 +1,10 @@
-# GHWE
-This is a custom made **Guitar Hero Engine for web** by using YOUR mp3s itll convert them IN REAL TIME! into a chart for the game to use, its in beta phase as its not 100% on beat its like a good 80% with different songs.
+# 🎸 GHWE – Guitar Hero Web Engine  
+A custom-made **Guitar Hero-style rhythm engine** for the web. Just drop in your own MP3s, and it converts them **in real time** into playable charts!  
 
-# ISSUES 
-**FOR NOW USE OPERA GX ON DESKTOP AND MOBILE WHILE I FIGURE OUT HOW TO FIX CHROMES BEAT DELAY**
+Currently in **beta** – beat detection accuracy is around **80%**, depending on the song. It’s already fun, but still evolving!
+
+---
+
+## ⚠️ Known Issues
+**For now, use _Opera GX_ on desktop and mobile.**  
+Chrome has a beat delay issue that I’m actively working on.
