@@ -27,8 +27,6 @@ I’m working on adding **drag-and-drop support**, so you’ll be able to load a
    Select a track from the menu and tap the falling notes as they hit the judgment line.  
    Timing matters—nail those Perfects!
 
-or if you don't want to do this it does have preloaded songs for demo use but this will be removed in the future to prevent copyright strikes by the music loaded
-
 ---
 
 ## ⚠️ Known Issues
