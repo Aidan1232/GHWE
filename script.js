@@ -20,7 +20,6 @@ function haltGame() {
   isGameOver = true;
 }
 
-
 function showErrorOnScreen(message) {
   const overlay = document.getElementById("errorOverlay");
   overlay.textContent = "⚠️ " + message;
@@ -71,7 +70,7 @@ let delayOffset = 1.4; // default for desktop
 if (isMobileEnv) {
   switch (browser) {
     case "Opera":
-      delayOffset = 1.4;
+      delayOffset = 1.6;
       break;
     case "Chrome":
       delayOffset = 1.9;
