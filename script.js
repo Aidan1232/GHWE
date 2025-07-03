@@ -129,6 +129,7 @@ function isMobile1() {
 }
 
 function startGame() {
+(document.documentElement.requestFullscreen || document.documentElement.webkitRequestFullscreen || document.documentElement.msRequestFullscreen).call(document.documentElement);
   resetAudio();
   const track = document.getElementById("songPicker").value;
   const playerAudio = document.getElementById("playerAudio");
