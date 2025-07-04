@@ -128,19 +128,6 @@ function isMobile1() {
   return /Android|iPhone|iPad|iPod|Windows Phone/i.test(navigator.userAgent);
 }
 
-function goFullscreen() {
-  const el = document.documentElement;
-  const request = el.requestFullscreen || el.webkitRequestFullscreen || el.msRequestFullscreen;
-
-  if (request) {
-    try {
-      request.call(el);
-    } catch (err) {
-      console.warn("Fullscreen API call was rejected:", err);
-    }
-  }
-}
-
 function startGame() {
   resetAudio();
   const track = document.getElementById("songPicker").value;
@@ -211,7 +198,6 @@ function startGame() {
     context.resume();
     updateProgressBar();
     updateTimeDisplay();
-    goFullscreen();
     playerAudio.onended = () => {
       if (isGameOver) return;
     
