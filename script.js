@@ -81,7 +81,7 @@ if (isMobileEnv) {
       showBrowserRecommendation();
       break;
     default:
-      delayOffset = 2.0;
+      delayOffset = 1.5;
       showBrowserRecommendation();
       alert("couldnt detect what browser you're using...");
   }
