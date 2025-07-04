@@ -128,8 +128,21 @@ function isMobile1() {
   return /Android|iPhone|iPad|iPod|Windows Phone/i.test(navigator.userAgent);
 }
 
+function goFullscreen() {
+  const el = document.documentElement;
+  const request = el.requestFullscreen || el.webkitRequestFullscreen || el.msRequestFullscreen;
+
+  if (request) {
+    try {
+      request.call(el);
+    } catch (err) {
+      console.warn("Fullscreen API call was rejected:", err);
+    }
+  }
+}
+
 function startGame() {
-(document.documentElement.requestFullscreen || document.documentElement.webkitRequestFullscreen || document.documentElement.msRequestFullscreen).call(document.documentElement);
+  goFullscreen();
   resetAudio();
   const track = document.getElementById("songPicker").value;
   const playerAudio = document.getElementById("playerAudio");
