@@ -17,7 +17,7 @@ I’m working on adding **drag-and-drop support**, so you’ll be able to load a
    Clone or download this repository and run it locally.
 
 2. **Add Your Songs**  
-   Drop your `.mp3` files into the `songs/` directory to play your own music.  
+   Drop your `.mp3` files into the `Songs/` directory to play your own music.  
    _Drag-and-drop support is in development!_
 
 3. **Launch the Game**  
