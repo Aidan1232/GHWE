@@ -142,7 +142,6 @@ function goFullscreen() {
 }
 
 function startGame() {
-  goFullscreen();
   resetAudio();
   const track = document.getElementById("songPicker").value;
   const playerAudio = document.getElementById("playerAudio");
@@ -212,6 +211,7 @@ function startGame() {
     context.resume();
     updateProgressBar();
     updateTimeDisplay();
+    goFullscreen();
     playerAudio.onended = () => {
       if (isGameOver) return;
     
